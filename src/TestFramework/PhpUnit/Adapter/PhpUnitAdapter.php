@@ -35,6 +35,7 @@ declare(strict_types=1);
 
 namespace Infection\TestFramework\PhpUnit\Adapter;
 
+use Infection\TestFramework\VersionParserInterface;
 use function escapeshellarg;
 use Infection\AbstractTestFramework\MemoryUsageAware;
 use Infection\AbstractTestFramework\SyntaxErrorAware;
@@ -45,7 +46,6 @@ use Infection\TestFramework\CommandLineBuilder;
 use Infection\TestFramework\Config\InitialConfigBuilder;
 use Infection\TestFramework\Config\MutationConfigBuilder;
 use Infection\TestFramework\ProvidesInitialRunOnlyOptions;
-use Infection\TestFramework\VersionParser;
 use function Safe\preg_match;
 use function Safe\sprintf;
 use function trim;
@@ -67,7 +67,7 @@ class PhpUnitAdapter extends AbstractTestFrameworkAdapter implements MemoryUsage
         InitialConfigBuilder $initialConfigBuilder,
         MutationConfigBuilder $mutationConfigBuilder,
         CommandLineArgumentsAndOptionsBuilder $argumentsAndOptionsBuilder,
-        VersionParser $versionParser,
+        VersionParserInterface $versionParser,
         CommandLineBuilder $commandLineBuilder,
         ?string $version = null
     ) {

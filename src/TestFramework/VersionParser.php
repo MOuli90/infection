@@ -43,7 +43,7 @@ use Webmozart\Assert\Assert;
 /**
  * @internal
  */
-final class VersionParser
+final class VersionParser implements VersionParserInterface
 {
     private const VERSION_REGEX = '/(?<version>\d+\.\d+\.?\d*)(?<prerelease>-[0-9a-zA-Z.]+)?(?<build>\+[0-9a-zA-Z.]+)?/';
 
